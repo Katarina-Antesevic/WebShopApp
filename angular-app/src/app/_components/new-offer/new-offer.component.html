@@ -1,0 +1,92 @@
+<app-header></app-header>
+<h2 class="text-center mt-3">Kreiranje nove ponude:</h2>
+<div class="container mt-3 " style="padding-bottom: 50px;">
+    <div style="padding: 20px">
+        <form [formGroup]="form">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Naziv proizvoda</mat-label>
+                <input matInput name="name" id="name" placeholder="Naziv proizvoda" formControlName="name" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Cijena</mat-label>
+                <input matInput type="number" name="price" id="price" placeholder="Cijena" formControlName="price"
+                    required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Opis proizvoda</mat-label>
+                <input matInput name="description" id="description" placeholder="Opis proizvoda"
+                    formControlName="description" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Kontakt</mat-label>
+                <input matInput name="contact" id="contact" placeholder="Kontakt" formControlName="contact" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Adresa</mat-label>
+                <input matInput name="address" id="address" placeholder="Adresa" formControlName="address" required>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Kategorija proizvoda</mat-label>
+                <select matNativeControl formControlName="category" id="category"
+                    (change)="selectCategoryHandler($event)" required>
+                    <option *ngFor="let cat of selectCategory" value={{cat.categoryId}}>{{cat.categoryName}}</option>
+                </select>
+            </mat-form-field>
+
+            <form [formGroup]="attributesForm">
+                <div *ngFor="let att of attributes">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>{{att.name}}</mat-label>
+                        <input matInput name={{att.name}} id={{att.name}} placeholder={{att.name}} formControlName={{att.name}}
+                            required>
+                    </mat-form-field>
+                </div>
+            </form>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Stanje proizvoda</mat-label>
+                <select matNativeControl formControlName="newOrUsed" id="newOrUsed"
+                    (change)="selectNewOrUsedHandler($event)" required>
+                    <option value="1">Proizvod je nov</option>
+                    <option value="2">Proizvod je koristen</option>
+                </select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Slika 1</mat-label>
+                <input matInput name="img1" id="img1" placeholder="Slika 1" formControlName="img1">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Slika 2</mat-label>
+                <input matInput name="img2" id="img2" placeholder="Slika 2" formControlName="img2">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Slika 3</mat-label>
+                <input matInput name="img3" id="img3" placeholder="Slika 3" formControlName="img3">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Slika 4</mat-label>
+                <input matInput name="img4" id="img4" placeholder="Slika 4" formControlName="img4">
+            </mat-form-field>
+
+            <div class="text-center mt-3">
+                <button class="w-50" mat-raised-button style="background-color: rgb(52,188,164)"
+                    (click)="createNewOffer()">Kreirajte
+                    ponudu</button>
+            </div>
+
+
+
+
+        </form>
+
+    </div>
+
+
+</div>

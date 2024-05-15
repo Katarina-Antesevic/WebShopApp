@@ -1,0 +1,81 @@
+
+<app-header></app-header>
+<div class="container">
+    <div class="left">
+        <div class="text-center">
+            <div class="image mt-3">
+                <img src={{user.avatar}} class="rounded-circle" *ngIf="user && user.avatar!=null" />
+                <img src="../../../../assets/default.jpg" *ngIf="user && user.avatar==null" />
+            </div>
+
+            <br><br>
+
+            <h2>Korisnik:</h2>
+            <h2>{{user?.username}}</h2>
+
+            <button style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                routerLink="/password-update">Promijenite
+                lozinku</button>
+        </div>
+    </div>
+
+    <div class="center mt-3">
+        <div class="text-center">
+            <label class="form-label-title mt-5">Promjena trenutnih podataka o korisniku: </label>
+            <br><br>
+            <form [formGroup]="form">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Ime</mat-label>
+                    <input matInput name="ime" id="ime" placeholder="Ime" formControlName="firstName" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Prezime</mat-label>
+                    <input matInput name="prezime" id="prezime" placeholder="Prezime" formControlName="lastName"
+                        required>
+                </mat-form-field>
+    
+    
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Grad</mat-label>
+                    <input matInput name="grad" id="grad" placeholder="Grad" formControlName="city" required>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Email adresa</mat-label>
+                    <input matInput name="mail" id="mail" placeholder="Email adresa" formControlName="mail"
+                        required>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Avatar</mat-label>
+                    <input matInput name="avatar" id="avatar" placeholder="Avatar" formControlName="avatar">
+                </mat-form-field>
+
+                <div class="text-center">
+                    <button class="w-50"  mat-raised-button style="background-color: rgb(52,188,164)" (click)="infoUpdate()">Sacuvajte podatke</button>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+    <div class="right mt-5">
+        <div class="text-center">
+            <button  style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                routerLink="/user-offers">Vase ponude</button>
+            <br><br>
+                <button style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                    routerLink="/user-purchases">Vase kupovine</button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+</div>

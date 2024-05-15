@@ -1,0 +1,55 @@
+<div class="main-container">
+    <div class="container">
+        <button type="button" mat-raised-button style="background-color: rgb(52,188,164)" (click)="getAll()">Svi
+            proizvodi</button>
+        &nbsp;&nbsp;
+        <div style="padding-top: 9px;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                style="font-size: 20px;" aria-expanded="false">Izaberite
+                kategoriju za pretragu</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li *ngFor="let c of selectedElementValues">
+                    <button class="dropdown-item" (click)="selectCategory(c.categoryId)">{{c.categoryTitle}}</button>
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="add" mat-raised-button style="background-color: rgb(52,188,164)"
+        *ngIf="isLoggedIn()"   routerLink="/new-offer">Dodajte ponudu</button>
+
+        <br>
+    </div>
+
+    <div class="container-offers mt-5">
+
+        <h1 *ngIf="total === 0">Trenutno ne postoji ni jedna ponuda</h1>
+
+        <div *ngFor="let o of obs | async">
+            <div class="card-wrapper" *ngIf="o.isActive">
+                <div class="card h-100 my-card">
+                    <img src="{{o.product.images[0].url}}" class="card-img-top my-card-image" *ngIf="o.product.images[0]">
+                    <img src="../../../assets/product-photo.png" class="card-img-top my-card-image" *ngIf="!o.product.images[0]">
+                    <div class="card-body text-center">
+                        <h4>{{ o.product.name }}</h4>
+                        <p class="card-text">{{ o.product.price }}&nbsp;KM</p>
+                        <button mat-raised-button style="background-color: rgb(52,188,164)" (click)="details(o)">Pogledajte vise detalja</button>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <mat-paginator class="my-paginator" #paginator [pageSize]="pageSize" [pageSizeOptions]="[4, 8, 20]"
+        [showFirstLastButtons]="true" [length]="total" [pageIndex]="currentPage" (page)="handlePage($event)">
+    </mat-paginator>
+</div>

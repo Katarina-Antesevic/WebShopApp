@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div class="container">
+    <div class="left mt-3">
+        <div class="text-center">
+            <label class="form-label-title mt-3">Detalji o ponudi:</label>
+            <br>
+            <br>
+            <label class="form-label mt-3">Proizvod: &nbsp;&nbsp; <b>{{offer.product.name}}</b></label>
+            <br>
+            <label class="form-label mt-3">Cijena proizvoda: &nbsp;&nbsp;<b>{{offer.product.price}}&nbsp;</b>
+                <b>KM</b></label>
+            <br>
+            <label class="form-label mt-3">Adresa: &nbsp;&nbsp;<b>{{offer.product.address}}</b></label>
+            <br>
+            <label class="form-label mt-3">Kontakt: &nbsp;&nbsp;<b>{{offer.product.contact}}</b></label>
+            <br>
+            <label class="form-label mt-3">Detaljniji opis: &nbsp;&nbsp;<b>{{offer.product.description}}</b></label>
+            <br>
+            <label class="form-label mt-3" *ngIf="isProductNew()"><b>PROIZVOD JE NOV</b></label>
+            <br>
+            <label class="form-label mt-3" *ngIf="!isProductNew()"><b>PROIZVOD JE KORISTEN</b></label>
+            <br>
+
+            <button class="mt-5" *ngIf="isLoggedIn() && !isUserOwner()" mat-raised-button style="background-color: rgb(52,188,164)"
+                (click)="purchaseOffer(offer)">Kupite proizvod</button>
+
+        </div>
+    </div>
+
+    <div class="center mt-3">
+        <div *ngIf="offer.product.images.length!=1">
+            <div class="image-container" *ngFor="let image of offer.product.images">
+
+                <div class="image">
+                    <img src="{{image.url}}">
+                </div>
+                <img src="../../../assets/product-photo.png" *ngIf="offer.product.images.length===0">
+
+
+            </div>
+        </div>
+        <img src="{{offer.product.images[0].url}}" *ngIf="offer.product.images.length===1">
+        <img src="../../../assets/product-photo.png" *ngIf="offer.product.images.length===0">
+
+
+    </div>
+
+    <div class="right mt-3">
+        <div class="newComment mt-5" *ngIf="isLoggedIn()">
+            <div class="text-center">
+                <form [formGroup]="form">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Tekst komentara</mat-label>
+                        <input matInput name="newComment" id="newComment" placeholder="Tekst komentara"
+                            formControlName="newComment" required>
+                    </mat-form-field>
+                    <br>
+                    <button mat-raised-button style="background-color: rgb(52,188,164)"
+                        (click)="createComment()">Ostavite &nbsp;&nbsp;komentar</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="text-center mt-5">
+            <label class="form-label-title">Komentari:</label>
+            <br><br>
+            <h2 *ngIf="comments.length === 0">Trenutno ne postoji ni jedan komentar</h2>
+
+            <div class="card mt-3" style="margin-left: 20px;" *ngFor="let comment of comments">
+                <div class="card-body">
+                    <div class="card-title" style="background-color: rgb(52,188,164);">
+                        <h2>{{comment.user.username}}</h2>
+                    </div>
+                    <div class="card-text" style="font-size: 15px;">
+                        {{comment.content}}
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>

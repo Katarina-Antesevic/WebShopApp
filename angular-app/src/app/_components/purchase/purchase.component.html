@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="container mt-3 " style="padding-bottom: 50px;">
+    <div style="padding: 20px">
+        <div class="text-center">
+            <h2>Kupovina proizvoda:</h2>
+
+            <form [formGroup]="form">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Proizvod</mat-label>
+                    <input matInput name="product" id="product" placeholder="Proizvod" formControlName="product"
+                        readonly>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Cijena</mat-label>
+                    <input matInput name="price" id="price" placeholder="Cijena" formControlName="price" readonly>
+                </mat-form-field>
+
+
+
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Nacin placanja</mat-label>
+                    <select matNativeControl formControlName="paymentType" id="paymentType"
+                        (change)="selectPaymentType($event)" required>
+                        <option *ngFor="let pT of paymentTypes" value={{pT.name}}>{{pT.name}}</option>
+                    </select>
+                </mat-form-field>
+
+
+                <div class="myClass" *ngIf="cardPayment">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Broj kartice</mat-label>
+                        <input matInput name="cardNumber" id="cardNumber" placeholder="Broj kartice"
+                            formControlName="cardNumber" required>
+                    </mat-form-field>
+                </div>
+
+                <div class="text-center">
+                    <button class="w-50" mat-raised-button style="background-color: rgb(52,188,164)"
+                        (click)="purchaseProduct()">Kupite proizvod</button>
+                </div>
+
+            </form>
+
+
+        </div>

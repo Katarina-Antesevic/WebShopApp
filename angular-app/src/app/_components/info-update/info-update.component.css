@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.right{
+    width: 20%;
+}
+
+.center{
+    width: 60%;
+}
+
+.left{
+    width: 20%;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+}
+
+.form-label{
+    font-size: 20px;
+}
+
+.form-label-title{
+    font-size: 25px;
+}
+
+p{
+    font-size: 20px;
+}

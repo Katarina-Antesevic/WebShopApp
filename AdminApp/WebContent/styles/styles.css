@@ -1,0 +1,88 @@
+@charset "ISO-8859-1";
+
+.navbar {
+   
+    padding-top: .5rem;
+    padding-bottom: 8px !important;
+    font-size: larger;
+}
+
+.navbar .navbar-nav > li > a {
+    color: rgb(241, 238, 238);
+}
+
+.navbar .navbar-nav > li > a:hover{
+    color: white;
+}
+
+.container{
+    padding-top: 150px;
+}
+
+/*.container input{
+	width: 370px;
+}*/
+
+.form-signin{
+min-width: 500px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem
+}
+@media (max-width: 500px) {
+  .form-signin {
+    min-width: 90%;
+  }
+}
+
+.container-1{
+	padding-top: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+input[type=submit] {
+	background-color: rgb(52,188,164);
+	border: 0 none;
+	border-radius: 10px;
+}
+
+.form-new-Cat{
+	
+min-width: 500px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem
+}
+@media (max-width: 500px) {
+  .form-new-Cat {
+    min-width: 90%;
+  }
+}
+
+.container-2{
+	padding-top: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.content-div input[type=text] {
+	
+    	box-sizing: border-box;
+    	border: 2px solid #ccc;
+    	border-radius: 4px;
+    	font-size: 16px;
+    	background-color: white;
+    	background-image: url('styles/images/search.png');
+    	background-position: 10px 10px; 
+    	background-repeat: no-repeat;
+    	padding: 12px 20px 12px 40px;
+    	-webkit-transition: width 0.4s ease-in-out;
+    	transition: width 0.4s ease-in-out;
+}

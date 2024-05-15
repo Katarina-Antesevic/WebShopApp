@@ -1,0 +1,45 @@
+<app-header-default></app-header-default>
+<div class="container mt-5">
+    <div class="card" style="padding: 20px">
+        <form [formGroup]="form">
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Korisničko ime</mat-label>
+                <input matInput name="userName" id="userName" formControlName="username"
+                    placeholder="Korisničko ime" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Lozinka</mat-label>
+                <input matInput name="userPassword" id="userPassword" placeholder="Lozinka"
+                    formControlName="password" type="password" required>
+
+            </mat-form-field>
+
+            <div class="text-center">
+                <button class="w-50" mat-raised-button style="background-color: rgb(52,188,164)"
+                    (click)="login()">Prijava</button>
+            </div>
+
+
+            <!--<input type="text" ngModel name="userName" id="userName" placeholder="Unesite vaše korisničko ime"
+                class="form-control mb-3">
+
+            <input type="password" 
+            ngModel 
+            name="userPassword" 
+            id="userPassword" 
+            placeholder="Unesite vašu lozinku"
+                class="form-control mb-3">
+
+            <input type="submit" value="Prijava" class="btn  btn-block" style="background-color: rgb(52,188,164)">
+            -->
+        </form>
+        <br>
+        <br>
+        <div class="text-center">
+            <a style="font-size: 20px; color: rgb(102, 102, 102)" routerLink="/register">Kreiraj novi nalog</a>
+        </div>
+
+    </div>
+</div>

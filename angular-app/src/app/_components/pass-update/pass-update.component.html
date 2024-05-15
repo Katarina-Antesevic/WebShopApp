@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div class="container">
+    <div class="left">
+        <div class="text-center">
+            <div class="image mt-3">
+                <img src={{user.avatar}} class="rounded-circle" *ngIf="user && user.avatar!=null" />
+                <img src="../../../../assets/default.jpg" *ngIf="user && user.avatar==null" />
+            </div>
+
+            <br><br>
+
+            <h2>Korisnik:</h2>
+            <h2>{{user?.username}}</h2>
+
+            <button style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                routerLink="/info-update">Promijenite
+                podatke</button>
+        </div>
+    </div>
+
+    <div class="center mt-3">
+        <div class="text-center">
+            <label class="form-label-title mt-5">Promjena lozinke: </label>
+            <br><br>
+            <form [formGroup]="form">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Nova lozinka</mat-label>
+                    <input matInput name="password" id="password" placeholder="Lozinka" type="password"
+                        formControlName="password" required minlength="3">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Potvrda nove lozinke</mat-label>
+                    <input matInput name="passwordRepeated" id="passwordRepeated" placeholder="Potvrda lozinke"
+                        type="password" formControlName="passwordRepeated" required minlength="3">
+                </mat-form-field>
+
+                <div class="text-center">
+                    <button class="w-50"  mat-raised-button style="background-color: rgb(52,188,164)" (click)="passUpdate()">Sacuvajte lozinku</button>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+    <div class="right mt-5">
+        <div class="text-center">
+            <button  style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                routerLink="/user-offers">Vase ponude</button>
+            <br><br>
+                <button style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                    routerLink="/user-purchases">Vase kupovine</button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+</div>

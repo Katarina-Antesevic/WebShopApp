@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+}
+
+.container-offers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 90%;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
+img{
+    height: 200px;
+}
+
+
+.add {
+    margin-left:auto;
+}
+
+.container-offers{
+    padding-bottom: 50px;
+}
+
+.card-wrapper {
+    width: 250px;
+    min-height: 360px;
+    margin: 15px;
+}
+
+.card{
+    overflow-wrap: break-word;
+}

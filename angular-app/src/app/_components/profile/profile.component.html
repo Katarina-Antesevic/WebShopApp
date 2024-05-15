@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="container">
+    <div class="left">
+        <div class="text-center">
+            <div class="image mt-3">
+                <img src={{user.avatar}} class="rounded-circle" *ngIf="user && user.avatar!=null" />
+                <img src="../../../../assets/default.jpg" *ngIf="user && user.avatar==null" />
+            </div>
+
+            <br><br>
+
+            <h2>Korisnik:</h2>
+            <h2>{{user?.username}}</h2>
+
+            <button class="mt-5" style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                routerLink="/password-update">Promijenite
+                lozinku</button>
+            <br><br>
+            <button style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                routerLink="/info-update">Promijenite
+                podatke</button>
+        </div>
+    </div>
+
+    <div class="center mt-3">
+        <div class="text-center">
+            <label class="form-label-title mt-5">Trenutne informacije o korisniku:</label>
+            <br>
+            <label class="form-label mt-5">Ime:&nbsp;&nbsp;<b>{{user?.firstName}}</b></label>
+            <br>
+            <label class="form-label mt-2">Prezime:&nbsp;&nbsp;<b>{{user?.lastName}}</b></label>
+            <br>
+            <label class="form-label mt-2">Korisnicko ime:&nbsp;&nbsp;<b>{{user?.username}}</b></label>
+            <br>
+            <label class="form-label mt-2">Mail:&nbsp;&nbsp;<b>{{user?.mail}}</b></label>
+            <br>
+            <label class="form-label mt-2">Grad:&nbsp;&nbsp;<b>{{user?.city}}</b></label>
+            <br>
+            <label class="form-label mt-2">Avatar:&nbsp;&nbsp;<b>{{user?.avatar}}</b></label>
+        </div>
+
+
+    </div>
+
+    <div class="right mt-5">
+        <div class="text-center">
+            <button  style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                routerLink="/user-offers">Vase ponude</button>
+            <br><br>
+                <button style="width:50%" mat-raised-button style="background-color: rgb(52,188,164)"
+                    routerLink="/user-purchases">Vase kupovine</button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+</div>

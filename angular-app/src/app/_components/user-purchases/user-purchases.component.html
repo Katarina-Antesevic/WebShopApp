@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="mt-3">
+    <div class="text-center">
+        <h1>Vase kupovine:</h1>
+    </div>
+</div>
+<div class="container-offers">
+
+    <h1 *ngIf="purchases.length === 0">Jos uvijek niste nista kupili</h1>
+
+    <div *ngFor="let p of purchases">
+        <div class="card-wrapper">
+            <div class="card h-100 my-card">
+
+                <img src="{{p.offer.product.images[0].url}}" class="card-img-top my-card-image"
+                    *ngIf="p.offer.product.images[0]">
+                <img src="../../../assets/product-photo.png" class="card-img-top my-card-image"
+                    *ngIf="!p.offer.product.images[0]">
+                <div class="card-body text-center">
+                    <h4>{{ p.offer.product.name }}</h4>
+                    <p class="card-text">{{ p.offer.product.price }}&nbsp;KM<br><br> {{p.offer.product.description}}</p>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
